@@ -4,6 +4,9 @@
     --bg-primary-color: #111111;
     --bg-secondary-color: #343434;
     --bg-active-color: rgb(233, 233, 233);
+    --bg-danger-color: rgb(200, 50, 50);
+    --bg-safe-color: rgb(28, 160, 28);
+
 
     /* Text Color */
     --text-primary-color: rgb(237, 237, 237);
