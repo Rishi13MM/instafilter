@@ -15,22 +15,37 @@ html,
 body,
 main,
 section{
-    height: 100%;
+    min-height: 100%;
 }
 
 body{
     font-size: 1.6rem;
 }
 
-main{
-}
 
 main section{
     padding: var(--padding-2xl);
+    
+    display: flex;
+    gap: var(--gutter-lg);
+}
+
+section .left{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+
+    width: 70%;
+}
+
+section .right{
+    width: 30%;
+    background-color: var(--bg-secondary-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--padding-lg);
 }
 
 section .top{
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     gap: var(--gutter-md);
@@ -61,3 +76,72 @@ label.btn{
     align-items: center;
     cursor: pointer;
 } 
+
+section .bottom{
+    background-color: var(--bg-secondary-color);
+    /* width: 100%; */
+    aspect-ratio: 5/3;
+    border-radius: var(--border-radius-lg);
+    padding: var(--padding-2xl);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section .bottom .placeholder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .bottom .placeholder i{
+    font-size: 16rem;
+    opacity: 0.6;
+}
+
+section .bottom .placeholder p{
+    font-size: var(--font-size-lg);
+}
+
+section .right h2{
+    margin-bottom: var(--margin-md);
+}
+
+section .right .filters{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+}
+
+section .right .filter input {
+    width: 100%;
+    appearance: none;
+}
+
+section .right .filter input::-webkit-slider-runnable-track{
+    background-color: var(--bg-active-color);
+    height: 3px;
+    border-radius: 2px;
+}
+
+section .right .filter input::-webkit-slider-thumb{
+    cursor: pointer;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    margin-top: -8.5px;
+}
+
+
+
+
+/* Utility Classes */
+
+.hidden{
+    display: none !important;
+}
