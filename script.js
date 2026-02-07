@@ -1,5 +1,6 @@
 "use strict"
 
+const resetbuttonEl = document.getElementById("reset-btn");
 const imageInputEl = document.getElementById("image-input");
 const imageCanvasEl = document.getElementById("image-canvas");
 const canvasContext = imageCanvasEl.getContext("2d");
@@ -7,62 +8,7 @@ const filterContainerEl = document.querySelector(".filters");
 
 let image = null;
 
-const filters = {
-    brightness: {
-        value: 100,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    contrast: {
-        value: 100,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    saturation: {
-        value: 100,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    hueRotation: {
-        value: 0,
-        min: 0,
-        max: 360,
-        unit: "deg"
-    },
-    blur: {
-        value: 0,
-        min: 0,
-        max: 20,
-        unit: "px"
-    },
-    grayscale: {
-        value: 0,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    sepia: {
-        value: 0,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    opacity: {
-        value: 200,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-    invert: {
-        value: 0,
-        min: 0,
-        max: 200,
-        unit: "%"
-    },
-}
+let filters = getFilters();
 
 
 function createFilterElement(name, value, min, max) {
@@ -141,4 +87,91 @@ function applyFilters() {
         imageCanvasEl.width,
         imageCanvasEl.height
     );
+}
+
+
+
+resetbuttonEl.addEventListener("click", (e) => {
+
+    if (image) {
+        canvasContext.clearRect(0, 0, imageCanvasEl.width,imageCanvasEl.height);
+
+        canvasContext.filter = "none";
+        canvasContext.drawImage(
+            image,
+            0,
+            0,
+            imageCanvasEl.width,
+            imageCanvasEl.height
+        );
+
+        filters = getFilters();
+
+        const inputsEl = document.querySelectorAll("input[type='range']");
+
+        inputsEl.forEach((inputEl)=>{
+            inputEl.value = filters[inputEl.id].value;
+        });
+    }
+});
+
+
+
+function getFilters() {
+    return {
+        brightness: {
+            value: 100,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        contrast: {
+            value: 100,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        saturation: {
+            value: 100,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        hueRotation: {
+            value: 0,
+            min: 0,
+            max: 360,
+            unit: "deg"
+        },
+        blur: {
+            value: 0,
+            min: 0,
+            max: 20,
+            unit: "px"
+        },
+        grayscale: {
+            value: 0,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        sepia: {
+            value: 0,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        opacity: {
+            value: 200,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+        invert: {
+            value: 0,
+            min: 0,
+            max: 200,
+            unit: "%"
+        },
+    }
 }
