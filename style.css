@@ -124,6 +124,8 @@ section .right .filters{
     display: flex;
     flex-direction: column;
     gap: var(--gutter-md);
+
+    margin-bottom: var(--margin-xl);
 }
 
 section .right .filter input {
@@ -146,6 +148,13 @@ section .right .filter input::-webkit-slider-thumb{
     background-color: red;
     margin-top: -8.5px;
 }
+
+section .right .presets{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter-md);
+}
+
 
 
 /* Utility Classes */
