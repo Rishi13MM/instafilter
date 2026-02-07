@@ -68,7 +68,7 @@ const filters = {
 function createFilterElement(name, value, min, max) {
     const divEl = document.createElement("div");
     divEl.classList.add("filter");
-    
+
     const paragraphEl = document.createElement("p");
     paragraphEl.textContent = name;
 
@@ -79,10 +79,9 @@ function createFilterElement(name, value, min, max) {
     inputEl.value = value;
     inputEl.id = name;
 
-    inputEl.addEventListener("input", (e)=>{
+    inputEl.addEventListener("input", (e) => {
         filters[name].value = inputEl.value;
-
-        applyFilter(name, inputEl.value, filters[name].unit);
+        applyFilters();
     });
 
     divEl.append(paragraphEl, inputEl);
@@ -116,3 +115,30 @@ imageInputEl.addEventListener("change", (e) => {
         canvasContext.drawImage(image, 0, 0);
     }
 });
+
+
+function applyFilters() {
+    // Clear previous drawing
+    canvasContext.clearRect(0, 0, imageCanvasEl.width, imageCanvasEl.height);
+
+    canvasContext.filter = `
+        brightness(${filters.brightness.value}${filters.brightness.unit})
+        contrast(${filters.contrast.value}${filters.contrast.unit})
+        saturate(${filters.saturation.value}${filters.saturation.unit})
+        hue-rotate(${filters.hueRotation.value}${filters.hueRotation.unit})
+        blur(${filters.blur.value}${filters.blur.unit})
+        grayscale(${filters.grayscale.value}${filters.grayscale.unit})
+        opacity(${filters.opacity.value}${filters.opacity.unit})
+        invert(${filters.invert.value}${filters.invert.unit})
+        sepia(${filters.sepia.value}${filters.sepia.unit})
+    `.trim();
+
+    // Draw image with canvas size (important)
+    canvasContext.drawImage(
+        image,
+        0,
+        0,
+        imageCanvasEl.width,
+        imageCanvasEl.height
+    );
+}
