@@ -1,5 +1,6 @@
 "use strict"
 
+const downloadButtonEl = document.getElementById("download-btn");
 const resetbuttonEl = document.getElementById("reset-btn");
 const imageInputEl = document.getElementById("image-input");
 const imageCanvasEl = document.getElementById("image-canvas");
@@ -113,6 +114,14 @@ resetbuttonEl.addEventListener("click", (e) => {
             inputEl.value = filters[inputEl.id].value;
         });
     }
+});
+
+
+downloadButtonEl.addEventListener("click", (e)=>{
+    const linkEl = document.createElement("a");
+    linkEl.download = "edited-image.jpg";
+    linkEl.href = imageCanvasEl.toDataURL();
+    linkEl.click();
 });
 
 
