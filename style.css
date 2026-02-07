@@ -15,7 +15,7 @@ html,
 body,
 main,
 section{
-    min-height: 100%;
+    /* min-height: 100%; */
 }
 
 body{
@@ -30,19 +30,16 @@ main section{
     gap: var(--gutter-lg);
 }
 
+
+
+/* #### Left #### */
+
 section .left{
     display: flex;
     flex-direction: column;
     gap: var(--gutter-lg);
 
     width: 70%;
-}
-
-section .right{
-    width: 30%;
-    background-color: var(--bg-secondary-color);
-    border-radius: var(--border-radius-lg);
-    padding: var(--padding-lg);
 }
 
 section .top{
@@ -79,7 +76,6 @@ label.btn{
 
 section .bottom{
     background-color: var(--bg-secondary-color);
-    /* width: 100%; */
     aspect-ratio: 5/3;
     border-radius: var(--border-radius-lg);
     padding: var(--padding-2xl);
@@ -97,6 +93,8 @@ section .bottom .placeholder{
     justify-content: center;
 }
 
+
+
 section .bottom .placeholder i{
     font-size: 16rem;
     opacity: 0.6;
@@ -104,6 +102,18 @@ section .bottom .placeholder i{
 
 section .bottom .placeholder p{
     font-size: var(--font-size-lg);
+}
+
+section .bottom #image-canvas{
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+section .right{
+    width: 30%;
+    background-color: var(--bg-secondary-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--padding-lg);
 }
 
 section .right h2{
@@ -136,8 +146,6 @@ section .right .filter input::-webkit-slider-thumb{
     background-color: red;
     margin-top: -8.5px;
 }
-
-
 
 
 /* Utility Classes */
