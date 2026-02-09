@@ -145,7 +145,7 @@ section .right .filter input::-webkit-slider-thumb{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: red;
+    background-color: var(--bg-danger-color);
     margin-top: -8.5px;
 }
 
