@@ -11,44 +11,67 @@ const presetContainerEl = document.querySelector(".presets");
 let image = null;
 let presets = getPresets();
 let filters = getFilters();
-
+let imageExtensions = getImageExtensions();
 
 
 initFiltersUI();
 initPresetsUI();
 
+
+
 imageInputEl.addEventListener("change", (e) => {
-    const file = e.target.files[0];
 
-    image = new Image();
-    image.src = URL.createObjectURL(file);
+    try {
+        const file = e.target.files[0];
 
-    image.onload = () => {
-        resetFiltersUI();
+        if (!isImage(file.name)) {
+            throw new Error("Invalid image type");
+        }
 
-        document.querySelector(".placeholder").classList.add("hidden");
-        imageCanvasEl.classList.remove("hidden");
+        image = new Image();
+        image.src = URL.createObjectURL(file);
 
-        imageCanvasEl.width = image.width;
-        imageCanvasEl.height = image.height;
+        image.onload = () => {
+            resetFiltersUI();
 
-        renderCanvas();
+            document.querySelector(".placeholder").classList.add("hidden");
+            imageCanvasEl.classList.remove("hidden");
+
+            imageCanvasEl.width = image.width;
+            imageCanvasEl.height = image.height;
+
+            renderCanvas();
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert(`${error.message}\nTry again with an image...`);
     }
 });
-
 
 resetbuttonEl.addEventListener("click", (e) => {
     renderCanvas();
     resetFiltersUI();
 });
 
-
 downloadButtonEl.addEventListener("click", (e) => {
-    const linkEl = document.createElement("a");
-    linkEl.download = "edited-image.jpg";
-    linkEl.href = imageCanvasEl.toDataURL();
-    linkEl.click();
+    try {
+        if (!(image instanceof Image) || !(image.complete)) {
+            throw new Error("No image chosen");
+        }
+
+        const linkEl = document.createElement("a");
+        linkEl.download = "edited-image.jpg";
+        linkEl.href = imageCanvasEl.toDataURL();
+        linkEl.click();
+
+    } catch (error) {
+        console.error(error);
+        alert(error.message);
+    }
 });
+
+
 
 function createFilterElement(name, value, min, max) {
     const divEl = document.createElement("div");
@@ -258,6 +281,22 @@ function getPresets() {
     }
 }
 
+function getImageExtensions() {
+    return [
+        "jpg",
+        "jpeg",
+        "png",
+        "gif",
+        "bmp",
+        "tiff",
+        "webp",
+        "svg",
+        "heif",
+        "heic"
+    ];
+
+}
+
 function initFiltersUI() {
     Object.keys(filters).forEach(key => {
         const filterEl = createFilterElement(key, filters[key].value, filters[key].min, filters[key].max);
@@ -299,12 +338,10 @@ function resetFiltersUI() {
 }
 
 function renderCanvas(filterStr) {
-    if (!(image instanceof HTMLImageElement) || !image.complete) return;
-
-    if(filterStr){
-        canvasContext.filter=filterStr;
-    }else{
-        canvasContext.filter="none";
+    if (filterStr) {
+        canvasContext.filter = filterStr;
+    } else {
+        canvasContext.filter = "none";
     }
 
     // Clear previous drawing
@@ -334,4 +371,10 @@ function applyFilters() {
     `.trim();
 
     renderCanvas(filterStr);
+}
+
+function isImage(filename) {
+    const fileExtension = filename.split(".")[filename.split(".").length - 1]
+
+    return imageExtensions.includes(fileExtension);
 }

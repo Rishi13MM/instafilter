@@ -157,7 +157,6 @@ section .right .presets{
 }
 
 /* Utility Classes */
-
 .hidden{
     display: none !important;
 }
