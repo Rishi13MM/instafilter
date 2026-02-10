@@ -50,13 +50,13 @@ downloadButtonEl.addEventListener("click", (e) => {
     linkEl.click();
 });
 
-
 function createFilterElement(name, value, min, max) {
     const divEl = document.createElement("div");
     divEl.classList.add("filter");
 
     const paragraphEl = document.createElement("p");
     paragraphEl.textContent = name;
+    paragraphEl.style.textTransform = "capitalize";
 
     const inputEl = document.createElement("input");
     inputEl.type = "range";
@@ -271,6 +271,7 @@ function initPresetsUI() {
         const presetEl = document.createElement("button");
         presetEl.classList.add("preset-btn", "btn");
         presetEl.textContent = preset;
+        presetEl.style.textTransform = "capitalize";
 
         presetEl.addEventListener("click", (e) => {
             for (const key in (presets[preset])) {
