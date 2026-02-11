@@ -1,7 +1,8 @@
 <h1>
-  <img src="./src/assets/favicon.png" alt="InstaFilter Logo" width="40" style="vertical-align: middle;">
+  <img src="./src/assets/instafilter-logo.png" alt="InstaFilter Logo" width="40" style="vertical-align: middle;">
   InstaFilter
 </h1>
+
 
 InstaFilter is a client-side image editing web application that allows users to apply real-time filters and preset effects directly in the browser using the HTML5 Canvas API.
 
@@ -11,7 +12,7 @@ The application provides adjustable filter controls, a tab-based interface for f
 
 ## 🚀 Live Demo
 
-🚧 Deployment in progress
+[https://rishi13mm.github.io/instafilter](https://rishi13mm.github.io/instafilter/)
 
 <br>
 
