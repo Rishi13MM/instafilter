@@ -1,16 +1,19 @@
-# InstaFilter 🎨
+<h1>
+  <img src="./src/assets/favicon.png" alt="InstaFilter Logo" width="40" style="vertical-align: middle;">
+  InstaFilter
+</h1>
 
 InstaFilter is a client-side image editing web application that allows users to apply real-time filters and preset effects directly in the browser using the HTML5 Canvas API.
 
 The application provides adjustable filter controls, a tab-based interface for filters and presets, image validation, download functionality, and a fully responsive layout — built entirely with vanilla JavaScript (no external libraries or frameworks).
 
-
+<br>
 
 ## 🚀 Live Demo
 
 🚧 Deployment in progress
 
-
+<br>
 
 ## ✨ Features
 
@@ -33,7 +36,7 @@ The application provides adjustable filter controls, a tab-based interface for f
 * ⚠️ Image type validation with error handling
 * 📱 Fully responsive design (desktop, tablet, mobile)
 
-
+<br>
 
 ## 🛠 Tech Stack
 
@@ -51,7 +54,7 @@ The application provides adjustable filter controls, a tab-based interface for f
 
 No frameworks. No libraries. Pure frontend implementation.
 
-
+<br>
 
 ## 📁 Project Structure
 
@@ -74,7 +77,7 @@ InstaFilter/
         └── favicon.png
 ```
 
-
+<br>
 
 ## 🧩 How It Works
 
@@ -90,7 +93,7 @@ InstaFilter/
 6. Presets update multiple filter values at once.
 7. The final edited image is exported using `canvas.toDataURL()` and downloaded.
 
-
+<br>
 
 ## 🧠 Architecture Highlights
 
@@ -102,7 +105,7 @@ InstaFilter/
 * Reusable design tokens via CSS variables
 * Defensive programming with image validation
 
-
+<br>
 
 ## 🖥️ How to Run Locally
 
@@ -117,7 +120,7 @@ git clone https://github.com/rishi13mm/instafilter.git
 
 No build tools required.
 
-
+<br>
 
 ## 📌 Future Improvements
 
@@ -127,7 +130,7 @@ No build tools required.
 * Dark / light theme toggle
 * Improved accessibility
 
-
+<br>
 
 ## 👨‍💻 Author
 
