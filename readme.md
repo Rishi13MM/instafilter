@@ -4,13 +4,13 @@ InstaFilter is a client-side image editing web application that allows users to 
 
 The application provides adjustable filter controls, a tab-based interface for filters and presets, image validation, download functionality, and a fully responsive layout — built entirely with vanilla JavaScript (no external libraries or frameworks).
 
----
+
 
 ## 🚀 Live Demo
 
 🚧 Deployment in progress
 
----
+
 
 ## ✨ Features
 
@@ -33,7 +33,7 @@ The application provides adjustable filter controls, a tab-based interface for f
 * ⚠️ Image type validation with error handling
 * 📱 Fully responsive design (desktop, tablet, mobile)
 
----
+
 
 ## 🛠 Tech Stack
 
@@ -51,7 +51,7 @@ The application provides adjustable filter controls, a tab-based interface for f
 
 No frameworks. No libraries. Pure frontend implementation.
 
----
+
 
 ## 📁 Project Structure
 
@@ -74,7 +74,7 @@ InstaFilter/
         └── favicon.png
 ```
 
----
+
 
 ## 🧩 How It Works
 
@@ -90,7 +90,7 @@ InstaFilter/
 6. Presets update multiple filter values at once.
 7. The final edited image is exported using `canvas.toDataURL()` and downloaded.
 
----
+
 
 ## 🧠 Architecture Highlights
 
@@ -102,7 +102,7 @@ InstaFilter/
 * Reusable design tokens via CSS variables
 * Defensive programming with image validation
 
----
+
 
 ## 🖥️ How to Run Locally
 
@@ -117,7 +117,7 @@ git clone https://github.com/rishi13mm/instafilter.git
 
 No build tools required.
 
----
+
 
 ## 📌 Future Improvements
 
@@ -127,11 +127,10 @@ No build tools required.
 * Dark / light theme toggle
 * Improved accessibility
 
----
+
 
 ## 👨‍💻 Author
 
 **Rishi**
-MCA Student
+(MCA Student)
 
----
