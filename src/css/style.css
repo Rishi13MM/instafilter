@@ -11,15 +11,10 @@ html {
     color: var(--text-primary-color);
 }
 
-html,
-body,
-main,
-section {
-    /* min-height: 100%; */
-}
 
 body {
     font-size: 1.6rem;
+    overflow-x: hidden;
 }
 
 
@@ -190,4 +185,50 @@ section .right .presets {
 /* Utility Classes */
 .hidden {
     display: none !important;
+}
+
+
+/* Responsive Design (Media Queries) */
+
+@media (max-width: 992px) {
+
+    main section {
+        flex-direction: column;
+        gap: var(--gutter-xs);
+    }
+
+    section .left,
+    section .right {
+        width: 100%;
+    }
+
+    section .right {
+        margin-top: var(--margin-lg);
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .top{
+        justify-content: center;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    main section {
+        padding: var(--padding-lg);
+    }
+
+    section .bottom {
+        padding: var(--padding-lg);
+    }
+
 }
