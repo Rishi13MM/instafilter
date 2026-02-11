@@ -4,9 +4,7 @@
     box-sizing: border-box;
 }
 
-
-
-html{
+html {
     font-size: 62.5%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-primary-color);
@@ -16,18 +14,18 @@ html{
 html,
 body,
 main,
-section{
+section {
     /* min-height: 100%; */
 }
 
-body{
+body {
     font-size: 1.6rem;
 }
 
 
-main section{
+main section {
     padding: var(--padding-2xl);
-    
+
     display: flex;
     gap: var(--gutter-lg);
 }
@@ -36,7 +34,7 @@ main section{
 
 /* #### Left #### */
 
-section .left{
+section .left {
     display: flex;
     flex-direction: column;
     gap: var(--gutter-lg);
@@ -44,7 +42,7 @@ section .left{
     width: 70%;
 }
 
-section .top{
+section .top {
     display: flex;
     align-items: center;
     gap: var(--gutter-md);
@@ -57,25 +55,34 @@ section .top{
     border-radius: var(--border-radius-md);
     background-color: var(--bg-active-color);
     color: var(--text-active-color);
+    transition: all 0.2s ease;
 }
 
-#reset-btn{
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:active {
+    opacity: 1;
+}
+
+#reset-btn {
     background-color: var(--bg-danger-color);
     color: var(--text-primary-color);
 }
 
-#download-btn{
+#download-btn {
     background-color: var(--bg-safe-color);
     color: var(--text-primary-color);
 }
 
-label.btn{
+label.btn {
     display: flex;
     align-items: center;
     cursor: pointer;
-} 
+}
 
-section .bottom{
+section .bottom {
     background-color: var(--bg-secondary-color);
     aspect-ratio: 5/3;
     border-radius: var(--border-radius-lg);
@@ -87,7 +94,7 @@ section .bottom{
 
 }
 
-section .bottom .placeholder{
+section .bottom .placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,33 +102,57 @@ section .bottom .placeholder{
 }
 
 
-
-section .bottom .placeholder i{
+section .bottom .placeholder i {
     font-size: 16rem;
     opacity: 0.6;
 }
 
-section .bottom .placeholder p{
+section .bottom .placeholder p {
     font-size: var(--font-size-lg);
 }
 
-section .bottom #image-canvas{
+section .bottom #image-canvas {
     max-width: 90%;
     max-height: 80vh;
 }
 
-section .right{
+section .right {
     width: 30%;
     background-color: var(--bg-secondary-color);
     border-radius: var(--border-radius-lg);
     padding: var(--padding-lg);
 }
 
-section .right h2{
-    margin-bottom: var(--margin-md);
+section .right .tabs {
+    display: flex;
+    margin-bottom: var(--margin-lg);
+    gap: var(--gutter-sm);
 }
 
-section .right .filters{
+section .right .tab-btn {
+    flex: 1;
+    padding: var(--padding-sm);
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-active-color);
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+section .right .tab-btn.active {
+    background-color: var(--bg-safe-color);
+    color: var(--text-primary-color);
+}
+
+section .right .tab-panel {
+    display: none;
+}
+
+section .right .tab-panel.active {
+    display: block;
+}
+
+section .right .filters {
     display: flex;
     flex-direction: column;
     gap: var(--gutter-md);
@@ -134,13 +165,13 @@ section .right .filter input {
     appearance: none;
 }
 
-section .right .filter input::-webkit-slider-runnable-track{
+section .right .filter input::-webkit-slider-runnable-track {
     background-color: var(--bg-active-color);
     height: 3px;
     border-radius: 2px;
 }
 
-section .right .filter input::-webkit-slider-thumb{
+section .right .filter input::-webkit-slider-thumb {
     cursor: pointer;
     appearance: none;
     width: 20px;
@@ -150,13 +181,13 @@ section .right .filter input::-webkit-slider-thumb{
     margin-top: -8.5px;
 }
 
-section .right .presets{
+section .right .presets {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gutter-md);
 }
 
 /* Utility Classes */
-.hidden{
+.hidden {
     display: none !important;
 }

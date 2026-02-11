@@ -32,14 +32,23 @@
                 </div>
             </div>
             <div class="right">
-                <h2>Filters</h2>
-                <div class="filters">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="filters">Filters</button>
+                    <button class="tab-btn" data-tab="presets">Presets</button>
                 </div>
 
-                <h2>Presets</h2>
-                <div class="presets">
+                <div class="tab-content">
+
+                    <div class="tab-panel active" id="filters">
+                        <div class="filters"></div>
+                    </div>
+
+                    <div class="tab-panel" id="presets">
+                        <div class="presets"></div>
+                    </div>
 
                 </div>
+
             </div>
         </section>
     </main>

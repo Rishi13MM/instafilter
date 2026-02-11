@@ -5,6 +5,8 @@ const resetbuttonEl = document.getElementById("reset-btn");
 const imageInputEl = document.getElementById("image-input");
 const imageCanvasEl = document.getElementById("image-canvas");
 const canvasContext = imageCanvasEl.getContext("2d");
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabPanels = document.querySelectorAll(".tab-panel");
 const filterContainerEl = document.querySelector(".filters");
 const presetContainerEl = document.querySelector(".presets");
 
@@ -14,9 +16,8 @@ let filters = getFilters();
 let imageExtensions = getImageExtensions();
 
 
-initFiltersUI();
+initFiltersUI(); 2
 initPresetsUI();
-
 
 
 imageInputEl.addEventListener("change", (e) => {
@@ -71,6 +72,19 @@ downloadButtonEl.addEventListener("click", (e) => {
     }
 });
 
+tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // Remove active state
+        tabButtons.forEach(b => b.classList.remove("active"));
+        tabPanels.forEach(p => p.classList.remove("active"));
+
+        // Activate clicked tab
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab)
+        .classList.add("active");
+    });
+});
 
 
 function createFilterElement(name, value, min, max) {
